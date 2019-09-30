@@ -6,12 +6,18 @@ import { Observable } from 'rxjs';
 
 const API_URL = 'https://5cfa67ebf26e8c00146d0756.mockapi.io';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class CategoriesApiService {
 
   constructor(private http: HttpClient) { }
 
   all(): Observable<Category[]> {
     return this.http.get<Category[]>(API_URL + '/categories');
+  }
+
+  get(id: number): Observable<Category> {
+    return this.http.get<Category>(API_URL + '/categories/' + id);
   }
 }

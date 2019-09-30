@@ -1,3 +1,4 @@
+import { Category } from './../../models/category';
 import { TestBed } from '@angular/core/testing';
 
 import { CategoriesApiService } from './categories-api.service';
@@ -7,7 +8,7 @@ import {
   HttpTestingController
 } from '@angular/common/http/testing';
 
-describe('CategoriesApiService', () => {
+fdescribe('CategoriesApiService', () => {
   let httpTestingController: HttpTestingController;
   let service: CategoriesApiService;
   const API_URL = 'https://5cfa67ebf26e8c00146d0756.mockapi.io';
@@ -26,61 +27,29 @@ describe('CategoriesApiService', () => {
     expect(service).toBeTruthy();
   });
 
-  describe('#all', () => {
-    it('returned Observable should match the right data', () => {
-      const mockCourses = [
-        {
-          id: 1,
-          name: 'Category 1'
-        },
-        {
-          id: 2,
-          name: 'Category 2'
-        },
-        {
-          id: 3,
-          name: 'Category 3'
-        }];
+  it('returned Observable should match the right data', () => {
+    const mockCourses = [
+      new Category({
+        id: '1',
+        name: 'Category 1'
+      }),
+      new Category({
+        id: '2',
+        name: 'Category 2'
+      }),
+      new Category({
+        id: '3',
+        name: 'Category 3'
+      })];
 
-      service.all()
-        .subscribe(response => {
-          expect(response).toEqual(mockCourses);
-        });
+    service.all()
+      .subscribe(response => {
+        expect(response).toEqual(mockCourses);
+      });
 
-      const req = httpTestingController.expectOne(API_URL + '/categories');
-      expect(req.request.method).toEqual('GET');
+    const req = httpTestingController.expectOne(API_URL + '/categories');
+    expect(req.request.method).toEqual('GET');
 
-      req.flush(mockCourses);
-    });
+    req.flush(mockCourses);
   });
-
-  describe('#all', () => {
-    it('returned Observable should match the right data', () => {
-      const mockCourses = [
-        {
-          id: 1,
-          name: 'Category 1'
-        },
-        {
-          id: 2,
-          name: 'Category 2'
-        },
-        {
-          id: 3,
-          name: 'Category 3'
-        }];
-
-      service.all()
-        .subscribe(response => {
-          expect(response).toEqual(mockCourses);
-        });
-
-      const req = httpTestingController.expectOne(API_URL + '/categories');
-      expect(req.request.method).toEqual('GET');
-
-      req.flush(mockCourses);
-    });
-  });
-
-
 });
