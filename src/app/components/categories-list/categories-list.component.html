@@ -1,0 +1,7 @@
+<section *ngIf="categories.length > 0">
+  <ul class="categories-list">
+    <li *ngFor="let category of categories">
+      {{ category.name }}
+    </li>
+  </ul>
+</section>
