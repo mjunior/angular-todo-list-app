@@ -1,0 +1,9 @@
+<h2>Listas da categoria {{categoryId}}</h2>
+
+<section *ngIf="lists.length > 0">
+  <ul class="lists-list">
+    <li *ngFor="let list of lists">
+      {{ list.name }}
+    </li>
+  </ul>
+</section>

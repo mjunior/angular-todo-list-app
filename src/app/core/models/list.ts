@@ -1,6 +1,7 @@
-export class Category {
+export class List {
   id: number;
-  title: string;
+  itemId: number;
+  name: string;
 
   // tslint:disable-next-line:ban-types
   constructor(values: Object = {}) {

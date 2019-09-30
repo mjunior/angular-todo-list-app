@@ -1,3 +1,5 @@
+import { HomeComponent } from './components/home/home/home.component';
+import { AllListsComponent } from './components/lists/all-lists/all-lists.component';
 import { CategoryDetailComponent } from './components/categories/category-detail/category-detail.component';
 import { CategoriesListComponent } from './components/categories/categories-list/categories-list.component';
 import { NgModule } from '@angular/core';
@@ -12,10 +14,14 @@ const routes: Routes = [
   },
   {
     path: 'categories',
-    component: CategoriesListComponent,
+    component: HomeComponent,
   }, {
     path: 'categories/:id',
     component: CategoryDetailComponent
+  },
+  {
+    path: 'categories/:categoryId/lists',
+    component: AllListsComponent
   }
 ];
 
