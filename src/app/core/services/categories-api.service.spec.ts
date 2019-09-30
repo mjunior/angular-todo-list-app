@@ -1,4 +1,4 @@
-import { Category } from './../../models/category';
+import { Category } from './../../core/models/category';
 import { TestBed } from '@angular/core/testing';
 
 import { CategoriesApiService } from './categories-api.service';

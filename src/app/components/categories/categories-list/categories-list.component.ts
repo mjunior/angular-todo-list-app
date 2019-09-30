@@ -1,5 +1,5 @@
 import { CategoriesApiService } from './../../../core/services/categories-api.service';
-import { Category } from './../../../models/category';
+import { Category } from './../../../core/models/category';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

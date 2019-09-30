@@ -1,5 +1,5 @@
 import { CoreModule } from './../core.module';
-import { Category } from './../../models/category';
+import { Category } from './../../core/models/category';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
