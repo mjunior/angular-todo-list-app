@@ -1,3 +1,4 @@
+import { DataService } from './services/data.service';
 import { ListsFacade } from './../facades/lists.facade';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -18,7 +19,8 @@ import { ItemsApiService } from './services/items-api.service';
     CategoriesApiService,
     ListsApiService,
     ItemsApiService,
-    ListsFacade
+    ListsFacade,
+    DataService
   ]
 })
 export class CoreModule { }

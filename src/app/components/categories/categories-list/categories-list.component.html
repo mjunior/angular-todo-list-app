@@ -1,5 +1,6 @@
 <section *ngIf="categories.length > 0">
   <ul class="categories-list">
+    <button mat-button (click)="openDialog()">Open dialog</button>
     <li *ngFor="let category of categories">
       <a [routerLink]="['/categories',category.id, 'lists']">
         <button mat-button (click)="sidenavRef.toggle()"><span>{{category.name}}</span></button>

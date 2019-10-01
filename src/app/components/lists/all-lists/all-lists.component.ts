@@ -14,7 +14,7 @@ export class AllListsComponent implements OnInit {
   lists: List[] = [];
   categoryId: number;
 
-  constructor(private listService: ListsApiService, private listsFacade: ListsFacade, private route: ActivatedRoute) { }
+  constructor(private listsFacade: ListsFacade, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.params.subscribe(routeParams => {

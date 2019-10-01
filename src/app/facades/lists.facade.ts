@@ -1,3 +1,5 @@
+import { CategoriesApiService } from './../core/services/categories-api.service';
+import { Category } from './../core/models/category';
 import { ItemsApiService } from './../core/services/items-api.service';
 import { Item } from './../core/models/item';
 import { ListsApiService } from './../core/services/lists-api.service';
@@ -13,7 +15,8 @@ import { map, filter, catchError, mergeMap } from 'rxjs/operators';
 export class ListsFacade {
 
   constructor(private lisApiService: ListsApiService,
-              private itemsApiService: ItemsApiService) { }
+              private itemsApiService: ItemsApiService,
+              private categoriesApiService: CategoriesApiService) { }
 
   allLists(categoryId: number): Observable<List[]> {
     return this.lisApiService.all(categoryId)
@@ -27,6 +30,11 @@ export class ListsFacade {
 
   allItems(categoryId: number, id: number): Observable<Item[]> {
     return this.itemsApiService.all(categoryId, id)
+      .pipe(map(response => response));
+  }
+
+  postCategory(category: Category): Observable<Category> {
+    return this.categoriesApiService.post(category)
       .pipe(map(response => response));
   }
 }

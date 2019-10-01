@@ -1,6 +1,10 @@
 <mat-sidenav-container class="example-container">
   <mat-sidenav #sidenav [mode]="side">
-    <app-categories-list [sidenavRef]="sidenav"></app-categories-list>
+    <app-categories-list
+      [sidenavRef]="sidenav"
+      (openModal)="openDialogEvent($event)"
+      (categoryCreatedEvent)="categoryCreated($event)">
+    </app-categories-list>
   </mat-sidenav>
 
   <mat-sidenav-content>

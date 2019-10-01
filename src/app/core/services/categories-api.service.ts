@@ -18,4 +18,8 @@ export class CategoriesApiService {
   get(id: number): Observable<Category> {
     return this.http.get<Category>(API_URL + '/categories/' + id);
   }
+
+  post(category: Category): Observable<Category> {
+    return this.http.post<Category>(API_URL + '/categories', category);
+  }
 }
