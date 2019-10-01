@@ -3,7 +3,9 @@
 <section *ngIf="lists.length > 0">
   <ul class="lists-list">
     <li *ngFor="let list of lists">
-      {{ list.name }}
+      <a [routerLink]="['/categories',categoryId, 'lists', list.id]">
+        {{ list.name }}
+      </a>
     </li>
   </ul>
 </section>

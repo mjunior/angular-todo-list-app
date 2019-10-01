@@ -1,3 +1,4 @@
+import { ListsFacade } from './../../../facades/lists.facade';
 import { ActivatedRoute } from '@angular/router';
 import { ListsApiService } from './../../../core/services/lists-api.service';
 import { List } from './../../../core/models/list';
@@ -13,13 +14,13 @@ export class AllListsComponent implements OnInit {
   lists: List[] = [];
   categoryId: number;
 
-  constructor(private listService: ListsApiService, private route: ActivatedRoute) { }
+  constructor(private listService: ListsApiService, private listsFacade: ListsFacade, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.params.subscribe(routeParams => {
       this.categoryId = routeParams.categoryId;
-      this.listService.all(this.categoryId)
-        .subscribe((response) => this.lists = response);
+      this.listsFacade.allLists(this.categoryId)
+          .subscribe(response => this.lists = response);
     });
   }
 }

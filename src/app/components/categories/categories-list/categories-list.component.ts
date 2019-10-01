@@ -1,6 +1,7 @@
 import { CategoriesApiService } from './../../../core/services/categories-api.service';
 import { Category } from './../../../core/models/category';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { MatSidenav } from '@angular/material';
 
 @Component({
   selector: 'app-categories-list',
@@ -10,6 +11,8 @@ import { Component, OnInit } from '@angular/core';
 export class CategoriesListComponent implements OnInit {
 
   categories: Category[] = [];
+
+  @Input() private sidenavRef: MatSidenav;
 
   constructor(private service: CategoriesApiService) { }
 

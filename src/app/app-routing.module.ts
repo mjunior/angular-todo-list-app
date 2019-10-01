@@ -1,3 +1,4 @@
+import { ListDetailComponent } from './components/lists/list-detail/list-detail.component';
 import { HomeComponent } from './components/home/home/home.component';
 import { AllListsComponent } from './components/lists/all-lists/all-lists.component';
 import { CategoryDetailComponent } from './components/categories/category-detail/category-detail.component';
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'categories/:categoryId/lists',
     component: AllListsComponent
+  },
+  {
+    path: 'categories/:categoryId/lists/:id',
+    component: ListDetailComponent
   }
 ];
 

@@ -1,9 +1,11 @@
+import { ListsFacade } from './../facades/lists.facade';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CategoriesApiService } from './services/categories-api.service';
 import { ListsApiService } from './services/lists-api.service';
+import { ItemsApiService } from './services/items-api.service';
 
 
 
@@ -14,7 +16,9 @@ import { ListsApiService } from './services/lists-api.service';
   ],
   providers: [
     CategoriesApiService,
-    ListsApiService
+    ListsApiService,
+    ItemsApiService,
+    ListsFacade
   ]
 })
 export class CoreModule { }

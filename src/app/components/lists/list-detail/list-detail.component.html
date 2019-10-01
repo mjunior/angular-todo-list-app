@@ -1,0 +1,14 @@
+<h2>Items da lista {{id}}</h2>
+
+<section *ngIf="items.length > 0">
+  <mat-selection-list #shoes>
+    <mat-list-option *ngFor="let item of items" [selected]="item.done" (click)="checked(item)">
+      <a [routerLink]="['/categories',categoryId, 'items', item.id]">
+          {{ item.name }}
+        </a>
+    </mat-list-option>
+  </mat-selection-list>
+</section>
+
+
+
