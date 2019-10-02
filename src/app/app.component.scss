@@ -1,3 +1,7 @@
+.mat-drawer-inner-container {
+  background: red !important;
+  overflow-x: hidden !important;
+}
 .example-container {
   position: absolute;
   top: 0;
@@ -6,6 +10,9 @@
   right: 0;
   transform: translateX(-50%);
   max-width: 500px;
+}
+.sidenav-container {
+  height: calc(100vh - 63px);
 }
 .remaining-space {
   /* This fills the remaining space, by using flexbox.

@@ -1,4 +1,10 @@
-<mat-sidenav-container class="example-container">
+<div class="example-container">
+<mat-toolbar color="primary" class="example-toolbar">
+  <button mat-icon-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
+  <h1 class="example-app-name">Shopping List</h1>
+</mat-toolbar>
+
+<mat-sidenav-container>
   <mat-sidenav #sidenav [mode]="side">
     <app-categories-list
       [sidenavRef]="sidenav"
@@ -7,15 +13,8 @@
     </app-categories-list>
   </mat-sidenav>
 
-  <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <span><button mat-button (click)="backClicked()">Voltar</button></span>
-
-      <!-- This fills the remaining space of the current row -->
-      <span class="remaining-space"></span>
-
-      <span><button mat-button (click)="sidenav.toggle()">Lista de categorias</button></span>
-    </mat-toolbar>
+  <mat-sidenav-content class="sidenav-container">
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
+</div>
