@@ -12,8 +12,7 @@ import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dial
 export class AppComponent implements OnInit {
   constructor(
     private location: Location,
-    public dialog: MatDialog,
-    private service: CategoriesApiService) { }
+    public dialog: MatDialog) { }
 
   ngOnInit() { }
 
@@ -21,7 +20,7 @@ export class AppComponent implements OnInit {
     this.location.back();
   }
 
- openDialogEvent() {
-    const dialogRef = this.dialog.open(NewCategoriesModalComponent, { });
+  openDialogEvent() {
+    this.dialog.open(NewCategoriesModalComponent, {});
   }
 }

@@ -12,12 +12,6 @@ import { Subject } from 'rxjs';
   templateUrl: './new-categories-modal.html',
 })
 export class NewCategoriesModalComponent {
-
-  categoryIsCreated = false;
-
-  @Output()
-  categoryCreatedEvent: EventEmitter<Category> = new EventEmitter();
-
   constructor(private listsFacade: ListsFacade,
               private data: DataService) { }
 

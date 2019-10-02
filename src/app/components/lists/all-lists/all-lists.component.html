@@ -1,7 +1,11 @@
 <h2>Listas da categoria {{categoryId}}</h2>
+
 <mat-list role="list" *ngIf="lists.length > 0">
   <a mat-list-item role="listitem" *ngFor="let list of lists" [routerLink]="['/categories',categoryId, 'lists', list.id]">
     {{ list.name }}
     <mat-divider></mat-divider>
   </a>
 </mat-list>
+<app-create-button
+  (openCreateModal)="onCreateModal()">
+</app-create-button>

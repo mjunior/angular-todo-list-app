@@ -1,3 +1,4 @@
+import { ListDetailComponent } from './components/items/items-list/list-detail.component';
 import { NewCategoriesModalComponent } from './components/categories/category-modal/new-categories-modal.component';
 import { CoreModule } from './core/core.module';
 
@@ -11,7 +12,6 @@ import { CategoriesListComponent } from './components/categories/categories-list
 import { CategoryDetailComponent } from './components/categories/category-detail/category-detail.component';
 import { AllListsComponent } from './components/lists/all-lists/all-lists.component';
 import { HomeComponent } from './components/home/home/home.component';
-import { ListDetailComponent } from './components/lists/list-detail/list-detail.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 //
@@ -22,6 +22,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
+import { CreateButtonComponent } from './components/shared/create-button/create-button.component';
+import { ItemModalComponent } from './components/items/item-modal/item-modal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +32,9 @@ import { MatInputModule } from '@angular/material/input';
     AllListsComponent,
     HomeComponent,
     ListDetailComponent,
-    NewCategoriesModalComponent
+    NewCategoriesModalComponent,
+    CreateButtonComponent,
+    ItemModalComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +51,8 @@ import { MatInputModule } from '@angular/material/input';
     MatInputModule
   ],
   entryComponents: [
-    NewCategoriesModalComponent
+    NewCategoriesModalComponent,
+    ItemModalComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

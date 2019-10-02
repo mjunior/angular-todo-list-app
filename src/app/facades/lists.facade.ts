@@ -28,13 +28,18 @@ export class ListsFacade {
                   .pipe(map(response => response));
   }
 
-  allItems(categoryId: number, id: number): Observable<Item[]> {
-    return this.itemsApiService.all(categoryId, id)
+  postCategory(category: Category): Observable<Category> {
+    return this.categoriesApiService.post(category)
       .pipe(map(response => response));
   }
 
-  postCategory(category: Category): Observable<Category> {
-    return this.categoriesApiService.post(category)
+  allItems(categoryId: number, id: number): Observable<Item[]> {
+    return this.itemsApiService.all(categoryId, id)
+      .pipe(map(response => response.slice().reverse()));
+  }
+
+  postItem(categoryId: number, id: number, item: Item): Observable<Item> {
+    return this.itemsApiService.post(categoryId, id, item)
       .pipe(map(response => response));
   }
 }

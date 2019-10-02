@@ -23,4 +23,8 @@ export class AllListsComponent implements OnInit {
           .subscribe(response => this.lists = response);
     });
   }
+
+  onCreateModal() {
+    console.log('NEW-LIST-MODAL');
+  }
 }

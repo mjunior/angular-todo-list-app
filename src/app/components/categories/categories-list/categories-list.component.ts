@@ -25,8 +25,8 @@ export class CategoriesListComponent implements OnInit {
 
 
   ngOnInit() {
-    this.loadCategories();
-    this.data.categoryCreatedEvent.subscribe(message => this.loadCategories());
+    this.data.categoryCreatedEvent
+      .subscribe(message => this.loadCategories());
   }
 
   loadCategories() {
