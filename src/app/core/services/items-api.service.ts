@@ -28,4 +28,13 @@ export class ItemsApiService {
       throw new Error('IdsMustBePresent');
     }
   }
+
+  put(categoryId: number, listId: number, item: Item): Observable<Item> {
+    if (categoryId && listId) {
+      const url = API_URL + categoryId + '/lists/' + listId + '/items/' + item.id;
+      return this.http.put<Item>(url, item);
+    } else {
+      throw new Error('IdsMustBePresent');
+    }
+  }
 }

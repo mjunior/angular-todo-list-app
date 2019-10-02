@@ -41,7 +41,8 @@ export class ListDetailComponent implements OnInit {
   }
 
   checked(item: Item) {
-    console.log('Checked');
+    this.listsFacade.toggleItem(this.categoryId, this.id, item)
+      .subscribe(response => response);
   }
 
   onCreateModal() {

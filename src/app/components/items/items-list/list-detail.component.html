@@ -1,12 +1,15 @@
 <h2>Items da lista {{id}}</h2>
 
 <section *ngIf="items.length > 0">
-  <mat-selection-list #shoes>
-    <mat-list-option *ngFor="let item of items" [selected]="item.done" (click)="checked(item)">
-      <a [routerLink]="['/categories',categoryId, 'items', item.id]">
-          {{ item.name }}
-        </a>
-    </mat-list-option>
+  <mat-selection-list>
+    <div *ngFor="let item of items" class="task-item" [ngClass]="{'item-done': item.done === true}">
+    <mat-list-item (click)="checked(item)">
+          <div class="text-item-done">
+            {{ item.name }} - {{item.done}}
+            </div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    </div>
   </mat-selection-list>
 </section>
 <app-create-button

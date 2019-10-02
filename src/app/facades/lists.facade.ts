@@ -35,11 +35,22 @@ export class ListsFacade {
 
   allItems(categoryId: number, id: number): Observable<Item[]> {
     return this.itemsApiService.all(categoryId, id)
-      .pipe(map(response => response.slice().reverse()));
+      .pipe(map(response => response));
   }
 
   postItem(categoryId: number, id: number, item: Item): Observable<Item> {
     return this.itemsApiService.post(categoryId, id, item)
+      .pipe(map(response => response));
+  }
+
+  putItem(categoryId: number, id: number, item: Item): Observable<Item> {
+    return this.itemsApiService.put(categoryId, id, item)
+      .pipe(map(response => response));
+  }
+
+  toggleItem(categoryId: number, id: number, item: Item): Observable<Item> {
+    item.done = !item.done;
+    return this.itemsApiService.put(categoryId, id, item)
       .pipe(map(response => response));
   }
 }

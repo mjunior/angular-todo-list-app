@@ -1,0 +1,14 @@
+.mat-list-item {
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+.item-done {
+  .text-item-done {
+    color: rgb(187, 185, 185) !important;
+    font-style: italic;
+    text-decoration: line-through;
+    transition: .3s;
+  }
+}
