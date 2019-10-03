@@ -20,7 +20,7 @@ Funcionalidades para as listas de uma categoria
 Funcionalidades para os items de uma lista
 - [x] Listar items de uma lista
 - [x] Cadastrar item em uma lista
-- [ ] Editar item cadastrado de uma lista
+- [x] Editar item cadastrado de uma lista
 - [ ] Excluir Item cadastrado de uma lista
 - [x] Marcar item de uma lista como concluído
 

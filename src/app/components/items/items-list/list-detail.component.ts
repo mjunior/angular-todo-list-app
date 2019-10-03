@@ -4,7 +4,7 @@ import { Item } from './../../../core/models/item';
 import { ActivatedRoute } from '@angular/router';
 import { ListsFacade } from './../../../facades/lists.facade';
 import { ListsApiService } from './../../../core/services/lists-api.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-list-detail',
@@ -43,6 +43,19 @@ export class ListDetailComponent implements OnInit {
   checked(item: Item) {
     this.listsFacade.toggleItem(this.categoryId, this.id, item)
       .subscribe(response => response);
+  }
+
+  edit(event, item: Item) {
+    event.stopPropagation();
+    this.dialog.open(ItemModalComponent,
+      {
+        data: {
+          itemId: item.id,
+          categoryId: this.categoryId,
+          listId: item.listId,
+          name: item.name
+        }
+      });
   }
 
   onCreateModal() {

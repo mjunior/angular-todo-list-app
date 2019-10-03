@@ -20,7 +20,11 @@ export class ItemsApiService {
     }
   }
 
-  post(categoryId: number, listId: number, item: Item): Observable<Item> {
+  save(categoryId: number, listId: number, item: Item): Observable<Item> {
+    if (item.id) {
+      return this.put(categoryId, listId, item);
+    }
+
     if (categoryId && listId) {
       const url = API_URL + categoryId + '/lists/' + listId + '/items';
       return this.http.post<Item>(url, item);

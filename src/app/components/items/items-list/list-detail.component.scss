@@ -1,4 +1,7 @@
-.mat-list-item {
+.list-item {
+  width: 100%;
+  text-align: left;
+
   &:hover{
     cursor: pointer;
   }

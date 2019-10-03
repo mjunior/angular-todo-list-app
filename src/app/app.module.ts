@@ -25,6 +25,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { CreateButtonComponent } from './components/shared/create-button/create-button.component';
 import { ItemModalComponent } from './components/items/item-modal/item-modal.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +52,8 @@ import { ItemModalComponent } from './components/items/item-modal/item-modal.com
     MatToolbarModule,
     MatListModule,
     MatDialogModule,
-    MatInputModule
+    MatInputModule,
+    MatGridListModule
   ],
   entryComponents: [
     NewCategoriesModalComponent,

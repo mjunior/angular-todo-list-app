@@ -33,20 +33,20 @@ export class ListsFacade {
       .pipe(map(response => response));
   }
 
-  //Category methods
+  // Category methods
   postCategory(category: Category): Observable<Category> {
     return this.categoriesApiService.post(category)
       .pipe(map(response => response));
   }
 
-  //Items methods
+  // Items methods
   allItems(categoryId: number, id: number): Observable<Item[]> {
     return this.itemsApiService.all(categoryId, id)
       .pipe(map(response => response));
   }
 
   postItem(categoryId: number, id: number, item: Item): Observable<Item> {
-    return this.itemsApiService.post(categoryId, id, item)
+    return this.itemsApiService.save(categoryId, id, item)
       .pipe(map(response => response));
   }
 

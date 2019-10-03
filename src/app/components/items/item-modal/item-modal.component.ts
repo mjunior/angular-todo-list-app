@@ -13,14 +13,14 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 export class ItemModalComponent {
 
   itemForm = new FormGroup({
-    name: new FormControl('', [Validators.required])
+    id: new FormControl(this.params.itemId),
+    name: new FormControl(this.params.name, [Validators.required])
   });
 
   constructor(private listsFacade: ListsFacade,
               private data: DataService,
               @Inject(MAT_DIALOG_DATA) public params: any,
               public dialogRef: MatDialogRef<ItemModalComponent>) { }
-
 
   onSubmit() {
     this.listsFacade.postItem(this.params.categoryId, this.params.listId, this.itemForm.value)

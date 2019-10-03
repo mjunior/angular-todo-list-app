@@ -3,11 +3,18 @@
 <section *ngIf="items.length > 0">
   <mat-selection-list>
     <div *ngFor="let item of items" class="task-item" [ngClass]="{'item-done': item.done === true}">
-    <mat-list-item (click)="checked(item)">
-          <div class="text-item-done">
-            {{ item.name }} - {{item.done}}
-            </div>
-    </mat-list-item>
+    <mat-grid-list gutter="10px" cols="12" rowHeight="5:8" (click)="checked(item)">
+      <mat-grid-tile class="text-item-done" [colspan]="10">
+        <div class="list-item">
+          {{ item.name }}
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="2">
+        <button mat-button (click)="edit($event, item)">
+          editar
+        </button>
+      </mat-grid-tile>
+    </mat-grid-list>
     <mat-divider></mat-divider>
     </div>
   </mat-selection-list>
