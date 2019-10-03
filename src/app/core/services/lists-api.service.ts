@@ -18,4 +18,13 @@ export class ListsApiService {
   get(categoryId: number, id: number): Observable<List> {
     return this.http.get<List>(API_URL + categoryId + '/lists/' + id);
   }
+
+  post(categoryId: number, list: List): Observable<List> {
+    if (categoryId) {
+      const url = API_URL + categoryId + '/lists';
+      return this.http.post<List>(url, list);
+    } else {
+      throw new Error('IdsMustBePresent');
+    }
+  }
 }

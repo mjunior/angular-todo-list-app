@@ -1,3 +1,4 @@
+import { ListModalComponent } from './components/lists/list-modal/list-modal.component';
 import { ListDetailComponent } from './components/items/items-list/list-detail.component';
 import { NewCategoriesModalComponent } from './components/categories/category-modal/new-categories-modal.component';
 import { CoreModule } from './core/core.module';
@@ -34,7 +35,8 @@ import { ItemModalComponent } from './components/items/item-modal/item-modal.com
     ListDetailComponent,
     NewCategoriesModalComponent,
     CreateButtonComponent,
-    ItemModalComponent
+    ItemModalComponent,
+    ListModalComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +54,8 @@ import { ItemModalComponent } from './components/items/item-modal/item-modal.com
   ],
   entryComponents: [
     NewCategoriesModalComponent,
-    ItemModalComponent
+    ItemModalComponent,
+    ListModalComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

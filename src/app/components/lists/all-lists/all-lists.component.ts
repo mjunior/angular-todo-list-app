@@ -1,3 +1,6 @@
+import { MatDialog } from '@angular/material/dialog';
+import { DataService } from './../../../core/services/data.service';
+import { ListModalComponent } from './../list-modal/list-modal.component';
 import { ListsFacade } from './../../../facades/lists.facade';
 import { ActivatedRoute } from '@angular/router';
 import { ListsApiService } from './../../../core/services/lists-api.service';
@@ -14,17 +17,34 @@ export class AllListsComponent implements OnInit {
   lists: List[] = [];
   categoryId: number;
 
-  constructor(private listsFacade: ListsFacade, private route: ActivatedRoute) { }
+  constructor(private listsFacade: ListsFacade,
+              private route: ActivatedRoute,
+              private data: DataService,
+              public dialog: MatDialog) { }
 
   ngOnInit() {
     this.route.params.subscribe(routeParams => {
       this.categoryId = routeParams.categoryId;
-      this.listsFacade.allLists(this.categoryId)
-          .subscribe(response => this.lists = response);
+      this.loadLists();
     });
+
+    if (this.categoryId) {
+      this.data.listCreatedEvent
+        .subscribe(message => this.loadLists());
+    }
+  }
+
+  loadLists() {
+    this.listsFacade.allLists(this.categoryId)
+      .subscribe(response => this.lists = response);
   }
 
   onCreateModal() {
-    console.log('NEW-LIST-MODAL');
+    this.dialog.open(ListModalComponent,
+      {
+        data: {
+          categoryId: this.categoryId
+        }
+      });
   }
 }

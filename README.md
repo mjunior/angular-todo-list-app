@@ -12,7 +12,7 @@ Funcionalidades para as categorias
 **Listas**
 Funcionalidades para as listas de uma categoria
  - [x] Listagem de Listas por categoria
- - [ ] Cadastrar lista em uma categoria
+ - [x] Cadastrar lista em uma categoria
  - [ ] Editar lista em uma categoria
  - [ ] Deletar lista de uma categoria
 
