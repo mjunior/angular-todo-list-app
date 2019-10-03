@@ -9,7 +9,7 @@ const API_URL = 'https://5cfa67ebf26e8c00146d0756.mockapi.io/categories/';
 @Injectable()
 export class ItemsApiService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, ListsApiService) { }
 
   all(categoryId: number, listId: number): Observable<Item[]> {
     if (categoryId && listId) {

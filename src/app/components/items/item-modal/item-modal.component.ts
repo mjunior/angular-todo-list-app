@@ -10,12 +10,20 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
   templateUrl: './item-modal.component.html',
   styleUrls: ['./item-modal.component.scss']
 })
-export class ItemModalComponent {
+export class ItemModalComponent implements OnInit {
+
+  buttonText = 'Criar item';
 
   itemForm = new FormGroup({
     id: new FormControl(this.params.itemId),
     name: new FormControl(this.params.name, [Validators.required])
   });
+
+  ngOnInit(): void {
+    if (this.params.itemId) {
+      this.buttonText = 'Salvar item';
+    }
+  }
 
   constructor(private listsFacade: ListsFacade,
               private data: DataService,

@@ -16,7 +16,7 @@ import { HomeComponent } from './components/home/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 //
-import { MatSidenavModule } from '@angular/material';
+import { MatSidenavModule, MatCheckboxModule } from '@angular/material';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -53,7 +53,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatListModule,
     MatDialogModule,
     MatInputModule,
-    MatGridListModule
+    MatGridListModule,
+    MatCheckboxModule
   ],
   entryComponents: [
     NewCategoriesModalComponent,

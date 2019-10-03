@@ -5,7 +5,7 @@
       <input matInput placeholder="Nome" formControlName="name">
     </mat-form-field>
     <div>
-      <button type="submit" [mat-dialog-close]="true" mat-flat-button color="primary" [disabled]="!itemForm.valid">+ Criar item</button>
+      <button type="submit" [mat-dialog-close]="true" mat-flat-button color="primary" [disabled]="!itemForm.valid">+ {{buttonText}}</button>
     </div>
   </form>
 </div>
