@@ -2,11 +2,14 @@
 # Front End Test
 
 # TODO
+ - [ ] Variaveis de ambiente para API_URL
+ - [ ] Refatorar forma de montar URL
+ - [ ] Refatorar Edit e Delete para serem otimistas
  - [ ] Criar ListResolver
  - [ ] Criar ItemResolver
  - [ ] Criar CategoryResolver
 
- 
+
 # Features
 **Categorias**
 Funcionalidades para as categorias
