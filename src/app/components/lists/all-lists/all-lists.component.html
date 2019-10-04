@@ -1,7 +1,9 @@
-<h2>Listas da categoria {{categoryId}}</h2>
+<h2>Listas da categoria {{categoryName}}</h2>
 
 <mat-list role="list" *ngIf="lists.length > 0; else empty">
-  <a mat-list-item role="listitem" *ngFor="let list of lists" [routerLink]="['/categories',categoryId, 'lists', list.id]">
+  <a mat-list-item role="listitem" *ngFor="let list of lists"
+  [state]="{ listName:list.name}"
+  [routerLink]="['/categories',categoryId, 'lists', list.id]">
     {{ list.name }}
     <mat-divider></mat-divider>
   </a>

@@ -16,6 +16,7 @@ export class AllListsComponent implements OnInit {
 
   lists: List[] = [];
   categoryId: number;
+  categoryName: string;
 
   constructor(private listsFacade: ListsFacade,
               private route: ActivatedRoute,
@@ -23,6 +24,7 @@ export class AllListsComponent implements OnInit {
               public dialog: MatDialog) { }
 
   ngOnInit() {
+    this.categoryName = history.state.categoryName;
     this.route.params.subscribe(routeParams => {
       this.categoryId = routeParams.categoryId;
       this.loadLists();

@@ -16,6 +16,7 @@ export class ListDetailComponent implements OnInit {
   items: Item[] = [];
   categoryId: number;
   id: number;
+  listName: string;
 
   constructor(private listsFacade: ListsFacade,
               private route: ActivatedRoute,
@@ -23,6 +24,8 @@ export class ListDetailComponent implements OnInit {
               public dialog: MatDialog) { }
 
   ngOnInit() {
+    this.listName = history.state.listName;
+
     this.route.params.subscribe(routeParams => {
       this.categoryId = routeParams.categoryId;
       this.id = routeParams.id;
