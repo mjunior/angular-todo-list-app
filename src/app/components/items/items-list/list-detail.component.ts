@@ -58,6 +58,11 @@ export class ListDetailComponent implements OnInit {
       });
   }
 
+  delete(item: Item) {
+    this.listsFacade.deleteItem(this.categoryId, this.id, item)
+      .subscribe(response => this.loadItems());
+  }
+
   onCreateModal() {
     this.dialog.open(ItemModalComponent,
                     { data: {

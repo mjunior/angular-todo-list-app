@@ -1,3 +1,4 @@
+import { EmptyListComponent } from './components/shared/empty-list/empty-list.component';
 import { ListModalComponent } from './components/lists/list-modal/list-modal.component';
 import { ListDetailComponent } from './components/items/items-list/list-detail.component';
 import { NewCategoriesModalComponent } from './components/categories/category-modal/new-categories-modal.component';
@@ -27,6 +28,7 @@ import { CreateButtonComponent } from './components/shared/create-button/create-
 import { ItemModalComponent } from './components/items/item-modal/item-modal.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +40,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     NewCategoriesModalComponent,
     CreateButtonComponent,
     ItemModalComponent,
-    ListModalComponent
+    ListModalComponent,
+    EmptyListComponent
   ],
   imports: [
     BrowserModule,

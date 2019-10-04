@@ -60,4 +60,9 @@ export class ListsFacade {
     return this.itemsApiService.put(categoryId, id, item)
       .pipe(map(response => response));
   }
+
+  deleteItem(categoryId: number, id: number, item: Item): Observable<Item> {
+    return this.itemsApiService.delete(categoryId, id, item)
+      .pipe(map(response => response));
+  }
 }

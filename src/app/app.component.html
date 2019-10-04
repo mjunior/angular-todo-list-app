@@ -1,20 +1,23 @@
 <div class="example-container">
 <mat-toolbar color="primary" class="example-toolbar">
+  <button mat-icon-button (click)="backClicked()"><mat-icon>arrow_back</mat-icon></button>
+  <div class="remaining-space"></div>
+  <h1>TodoAPP</h1>
+  <div class="remaining-space"></div>
   <button mat-icon-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
-  <h1 class="example-app-name">Shopping List</h1>
 </mat-toolbar>
 
-<mat-sidenav-container>
-  <mat-sidenav #sidenav [mode]="side">
+<mat-drawer-container>
+  <mat-drawer #sidenav [mode]="side" position="end">
     <app-categories-list
       [sidenavRef]="sidenav"
       (openModal)="openDialogEvent($event)"
       (openCreateModal)="openDialogEvent($event)">
     </app-categories-list>
-  </mat-sidenav>
+  </mat-drawer>
 
-  <mat-sidenav-content class="sidenav-container">
+  <mat-drawer-content class="sidenav-container">
     <router-outlet></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+  </mat-drawer-content>
+</mat-drawer-container>
 </div>

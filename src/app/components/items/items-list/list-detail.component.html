@@ -1,6 +1,6 @@
-<h2>Items da lista {{id}}</h2>
+<h2>Tarefas da lista {{id}}</h2>
 
-<section *ngIf="items.length > 0">
+<section *ngIf="items.length > 0; else empty">
   <mat-selection-list>
     <div *ngFor="let item of items" class="task-item" [ngClass]="{'item-done': item.done === true}">
     <mat-grid-list gutter="10px" cols="12" rowHeight="5:8">
@@ -13,7 +13,7 @@
         <button mat-icon-button aria-label="Edit button" (click)="edit($event, item)">
           <mat-icon>edit</mat-icon>
         </button>
-        <button mat-icon-button aria-label="Edit button" (click)="edit($event, item)">
+        <button mat-icon-button aria-label="Delete button" (click)="delete(item)">
           <mat-icon>delete</mat-icon>
         </button>
       </mat-grid-tile>
@@ -22,6 +22,10 @@
     </div>
   </mat-selection-list>
 </section>
+<ng-template #empty>
+  <app-empty-list message="Ainda não temos nenhum tarefa nesta lista"></app-empty-list>
+</ng-template>
+
 <app-create-button
   (openCreateModal)="onCreateModal()">
 </app-create-button>

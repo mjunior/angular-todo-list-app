@@ -1,7 +1,13 @@
 
 # Front End Test
 
-  # Features
+# TODO
+ - [ ] Criar ListResolver
+ - [ ] Criar ItemResolver
+ - [ ] Criar CategoryResolver
+
+ 
+# Features
 **Categorias**
 Funcionalidades para as categorias
  - [x] Listar Categorias

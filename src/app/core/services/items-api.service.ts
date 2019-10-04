@@ -41,4 +41,13 @@ export class ItemsApiService {
       throw new Error('IdsMustBePresent');
     }
   }
+
+  delete(categoryId: number, listId: number, item: Item): Observable<Item> {
+    if (categoryId && listId) {
+      const url = API_URL + categoryId + '/lists/' + listId + '/items/' + item.id;
+      return this.http.delete<Item>(url);
+    } else {
+      throw new Error('IdsMustBePresent');
+    }
+  }
 }
