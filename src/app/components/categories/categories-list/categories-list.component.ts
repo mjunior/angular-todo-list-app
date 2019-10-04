@@ -1,3 +1,4 @@
+import { ListsFacade } from './../../../facades/lists.facade';
 import { DataService } from './../../../core/services/data.service';
 import { CategoriesApiService } from './../../../core/services/categories-api.service';
 import { Category } from './../../../core/models/category';
@@ -21,8 +22,8 @@ export class CategoriesListComponent implements OnInit {
 
   constructor(private service: CategoriesApiService,
               private data: DataService,
+              private listsFacade: ListsFacade,
               public dialog: MatDialog) { }
-
 
   ngOnInit() {
     this.data.categoryCreatedEvent
@@ -30,17 +31,11 @@ export class CategoriesListComponent implements OnInit {
   }
 
   loadCategories() {
-    console.log('loadCAtegorias');
-    this.service.all()
+    this.listsFacade.allCategories()
       .subscribe(data => this.categories = data);
   }
 
   openDialog() {
     this.openModal.emit({});
   }
-
-  categoryCreated() {
-    console.log('Categoria criada');
-  }
-
 }

@@ -34,6 +34,12 @@ export class ListsFacade {
   }
 
   // Category methods
+  // Items methods
+  allCategories(): Observable<Category[]> {
+    return this.categoriesApiService.all()
+      .pipe(map(response => response.slice().reverse()));
+  }
+
   postCategory(category: Category): Observable<Category> {
     return this.categoriesApiService.post(category)
       .pipe(map(response => response));

@@ -8,7 +8,7 @@ import {
   HttpTestingController
 } from '@angular/common/http/testing';
 
-fdescribe('CategoriesApiService', () => {
+describe('CategoriesApiService', () => {
   let httpTestingController: HttpTestingController;
   let service: CategoriesApiService;
   const API_URL = 'https://5cfa67ebf26e8c00146d0756.mockapi.io';
@@ -28,7 +28,7 @@ fdescribe('CategoriesApiService', () => {
   });
 
   it('returned Observable should match the right data', () => {
-    const mockCourses = [
+    const mockCategory = [
       new Category({
         id: '1',
         name: 'Category 1'
@@ -44,12 +44,33 @@ fdescribe('CategoriesApiService', () => {
 
     service.all()
       .subscribe(response => {
-        expect(response).toEqual(mockCourses);
+        expect(response).toEqual(mockCategory);
       });
 
     const req = httpTestingController.expectOne(API_URL + '/categories');
     expect(req.request.method).toEqual('GET');
 
-    req.flush(mockCourses);
+    req.flush(mockCategory);
+  });
+
+  it('created a category', () => {
+    const mockCategory = new Category({
+        id: '1',
+        name: 'Category 1'
+      });
+
+    const toCreate = new Category({
+      name: 'Category 1'
+    });
+
+    service.post(toCreate)
+      .subscribe(response => {
+        expect(response).toEqual(mockCategory);
+      });
+
+    const req = httpTestingController.expectOne(API_URL + '/categories');
+    expect(req.request.method).toEqual('POST');
+
+    req.flush(mockCategory);
   });
 });
