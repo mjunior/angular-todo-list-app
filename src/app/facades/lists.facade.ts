@@ -20,7 +20,7 @@ export class ListsFacade {
 
   allLists(categoryId: number): Observable<List[]> {
     return this.lisApiService.all(categoryId)
-                  .pipe(map(response => response));
+                  .pipe(map(response => response.slice().reverse()));
   }
 
   getList(categoryId: number, id: number): Observable<List> {
@@ -42,7 +42,7 @@ export class ListsFacade {
   // Items methods
   allItems(categoryId: number, id: number): Observable<Item[]> {
     return this.itemsApiService.all(categoryId, id)
-      .pipe(map(response => response));
+      .pipe(map(response => response.slice().reverse()));
   }
 
   postItem(categoryId: number, id: number, item: Item): Observable<Item> {

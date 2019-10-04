@@ -1,4 +1,4 @@
-<h2>Listas do projeto {{categoryId}}</h2>
+<h2>Listas da categoria {{categoryId}}</h2>
 
 <mat-list role="list" *ngIf="lists.length > 0; else empty">
   <a mat-list-item role="listitem" *ngFor="let list of lists" [routerLink]="['/categories',categoryId, 'lists', list.id]">
